@@ -1,22 +1,50 @@
-const screen = document.querySelector('.screen')
-let screenNumber = "0"
-screen.innerHTML = screenNumber;
-function printOnScreen(x) {
-    let helper = '';
-    if (x === 'x') {
-        if (screenNumber.length > 3) {
-            helper = (+screenNumber).toLocaleString()
-            screen.innerHTML = helper + '.'
-             screen.innerHTML = screenNumber
-        }
-            } 
-   
-     
+const screen = document.querySelector('.screen');
+let screenNumber = "0",
+    partA, partB, partC, operatorType, helper = 0;
 
-    function setNum(x) {
-        if (screenNumber === '0') {
-            screenNumber = ''
-        }
-        screenNumber = screenNumber + x;
-        printOnScreen(x);
-        } }
+screen.innerHTML = screenNumber;
+
+function printOnScreen(x) {
+
+    if (x === '.') {
+        screen.innerHTML = (+screenNumber).toLocaleString() + '.';
+    }
+    else { screen.innerHTML = (+screenNumber).toLocaleString() };
+
+}
+function setNum(x) {
+    if (helper) {
+        screenNumber = ''
+        helper = 0
+    }
+    if (screenNumber === '0') {
+        screenNumber = ''
+    }
+    screenNumber = screenNumber + x
+    printOnScreen(x)
+}
+function operate(type) {
+    partA = +screenNumber
+    operatorType = type
+    console.log(partA);
+    helper = 1
+}
+
+function calculate() {
+    partB = +screenNumber;
+   
+
+    if (operatorType === '+') {
+        result = partA + partB 
+    } else if (operatorType === '-') {
+        result = partA - partB 
+    } else if (operatorType === '*') {
+        result = partA * partB 
+    } else {
+        result = partA / partB 
+    }
+    screen.innerHTML = result
+}
+
+
+
