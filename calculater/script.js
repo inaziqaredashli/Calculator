@@ -1,7 +1,6 @@
 const screen = document.querySelector('.screen');
 let screenNumber = "0",
     partA, partB, partC, operatorType, helper = 0;
-
 screen.innerHTML = screenNumber;
 
 function printOnScreen(x) {
@@ -24,27 +23,31 @@ function setNum(x) {
     printOnScreen(x)
 }
 function operate(type) {
-    partA = +screenNumber
+    if (partA) {
+        calculate()
+    } else {
+        partA = +screenNumber
+
+    }
     operatorType = type
-    console.log(partA);
+   // console.log(partA);
     helper = 1
+  
+
 }
 
 function calculate() {
     partB = +screenNumber;
-   
-
     if (operatorType === '+') {
-        result = partA + partB 
+        result = partA + partB
     } else if (operatorType === '-') {
-        result = partA - partB 
+        result = partA - partB
     } else if (operatorType === '*') {
-        result = partA * partB 
+        result = partA * partB
     } else {
-        result = partA / partB 
+        result = partA / partB
     }
+    partA = result
     screen.innerHTML = result
 }
-
-
 
