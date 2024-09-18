@@ -2,14 +2,11 @@ const screen = document.querySelector('.screen');
 let screenNumber = "0",
     partA, partB, partC, operatorType, helper = 0;
 screen.innerHTML = screenNumber;
-
 function printOnScreen(x) {
-
     if (x === '.') {
         screen.innerHTML = (+screenNumber).toLocaleString() + '.';
     }
     else { screen.innerHTML = (+screenNumber).toLocaleString() };
-
 }
 function setNum(x) {
     if (helper) {
@@ -27,13 +24,11 @@ function operate(type) {
         calculate()
     } else {
         partA = +screenNumber
-
     }
     operatorType = type
    // console.log(partA);
     helper = 1
-  
-
+    partA = result
 }
 
 function calculate() {
@@ -47,7 +42,6 @@ function calculate() {
     } else {
         result = partA / partB
     }
-    partA = result
     screen.innerHTML = result
 }
 
