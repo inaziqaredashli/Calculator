@@ -1,3 +1,3 @@
 # Calculator - COMPLETED
-Practice + Homework
+Practice + Homework.
 Calculator was one of my first JS work!
